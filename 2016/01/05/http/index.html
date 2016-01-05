@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      个人总结HTTP | Octopus&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="章鱼哥">
+    
+    
+
+    <meta name="description" content="首先很高兴有人能看到我的博客Octopus! 这里有我的github github 需要的话都拿走好了。最近遇到几个HTTP方面的问题，其中包括HTTP的一些方法，和HTTP的几种状态，所以总结一下。
+
+HTTP
+
+划楞下脑袋里面的HTTP知识，首先进入脑袋的就是，他是一个传输协议，要通过几次握手，有GET,POST等方法，有五种状态，（说到这里我不得不吐槽一下，做前端实在是太广泛了，前端需要的H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人总结HTTP | Octopus's Blog">
+<meta property="og:url" content="http://yoursite.com/2016/01/05/http/index.html">
+<meta property="og:site_name" content="Octopus's Blog">
+<meta property="og:description" content="首先很高兴有人能看到我的博客Octopus! 这里有我的github github 需要的话都拿走好了。最近遇到几个HTTP方面的问题，其中包括HTTP的一些方法，和HTTP的几种状态，所以总结一下。
+
+HTTP
+
+划楞下脑袋里面的HTTP知识，首先进入脑袋的就是，他是一个传输协议，要通过几次握手，有GET,POST等方法，有五种状态，（说到这里我不得不吐槽一下，做前端实在是太广泛了，前端需要的H">
+<meta property="og:updated_time" content="2016-01-05T09:29:33.383Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个人总结HTTP | Octopus's Blog">
+<meta name="twitter:description" content="首先很高兴有人能看到我的博客Octopus! 这里有我的github github 需要的话都拿走好了。最近遇到几个HTTP方面的问题，其中包括HTTP的一些方法，和HTTP的几种状态，所以总结一下。
+
+HTTP
+
+划楞下脑袋里面的HTTP知识，首先进入脑袋的就是，他是一个传输协议，要通过几次握手，有GET,POST等方法，有五种状态，（说到这里我不得不吐槽一下，做前端实在是太广泛了，前端需要的H">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Octopus&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          欲戴王冠 必承其重
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">简介</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">个人总结HTTP</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-01-05" class="post-meta__date date">2016-01-05</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/HTTP-GET-POST-404-200/">HTTP GET POST 404 200</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>首先很高兴有人能看到我的博客<a href="http://80883080.github.io/" target="_blank" rel="external">Octopus</a>! 这里有我的github <a href="https://github.com/80883080" target="_blank" rel="external">github</a> 需要的话都拿走好了。<br>最近遇到几个HTTP方面的问题，其中包括HTTP的一些方法，和HTTP的几种状态，所以总结一下。</p>
+<hr>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><blockquote>
+<ul>
+<li>划楞下脑袋里面的HTTP知识，首先进入脑袋的就是，他是一个传输协议，要通过几次握手，有GET,POST等方法，有五种状态，（说到这里我不得不吐槽一下，做前端实在是太广泛了，前端需要的<br>H5+C3需要掌握，各种js框架，UI框架，移动框架需要会，PS需要会，做后台的Node需要会，HTTP协议还要会，大家未免对前端要求也太高了点）。言归正传，我们首先想到的也就只有这几个，反正我<br>是。</li>
+</ul>
+</blockquote>
+<h2 id="u72B6_u6001"><a href="#u72B6_u6001" class="headerlink" title="状态"></a>状态</h2><blockquote>
+<ul>
+<li>100+ 传输继续</li>
+<li>200+ 传输成功</li>
+<li>300+ 重定向 （服务器根据请求可执行多种操作）</li>
+<li>400+ 请求出错（服务器端检测到与其配置不符合的请求会直接回复400错误给客户端）</li>
+<li>500+ 服务器错误（说明服务器无法解析代码）</li>
+</ul>
+</blockquote>
+<h2 id="u65B9_u6CD5"><a href="#u65B9_u6CD5" class="headerlink" title="方法"></a>方法</h2><blockquote>
+<ul>
+<li><p>GET 发送一个请求来获得服务器上的某个资源。资源通过http头和数据的形式返回。方法$.getJSON $.ajax $.get</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(URL,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>POST 向服务器提交数据。 方法$.post</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.post(URL, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>HEAD 发送请求，获取服务器头。</p>
+</li>
+<li>PUT HTML不支持。不用了解</li>
+<li>DELETE 删除资源，不常见，反正我没用过。</li>
+<li>OPTIONS 获取方法。</li>
+</ul>
+</blockquote>
+<h2 id="u8DE8_u57DF"><a href="#u8DE8_u57DF" class="headerlink" title="跨域"></a>跨域</h2><blockquote>
+<ul>
+<li>前端经常遇到跨域问题，通常解决方法，用JSONP方式，代理服务器方式，以及H5的postMessage。</li>
+<li>JSONP应该是我用的最多的方式，由于script可以指定src位置，所以动态的指定src为目标服务器的位置，需要后台配合，通过callback参数。</li>
+<li>代理服务器，有一个中间服务器传输数据，在不跨域的位置建立服务器获取数据，然后转发给前端。</li>
+<li>H5的postMessage 调用postMessage方法的window对象是指要接收消息的那一个window对象，该方法的第一个参数message为要发送的消息，类型只能为字符串；第二个参数targetOrigin用来限定接收消息的那个window对象所在的域，如果不想限定域，可以使用通配符 * 需要接收消息的window对象，可是通过监听自身的message事件来获取传过来的消息，消息内容储存在该事件对象的data属性中。</li>
+</ul>
+</blockquote>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
