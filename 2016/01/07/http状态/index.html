@@ -29,7 +29,7 @@
 我们不能直接访问不同域名的数据，但是我们能直接执行不同域的JS文件，类似远程加载JQ文件
 12http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.jshttp://ajax">
 <meta property="og:image" content="http://yoursite.com/img/a.jpg">
-<meta property="og:updated_time" content="2016-01-07T06:59:13.665Z">
+<meta property="og:updated_time" content="2016-01-07T07:57:13.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http跨域解决方案 | Octopus's Blog">
 <meta name="twitter:description" content="JSONP
@@ -228,11 +228,28 @@ classes that you can use:
 </ul>
 <p>==============================</p>
 <h3 id="u4EE3_u7406_u670D_u52A1_u5668"><a href="#u4EE3_u7406_u670D_u52A1_u5668" class="headerlink" title="代理服务器"></a>代理服务器</h3><ul>
-<li>顾名思义，新建一个apache或者nginx，弄过一个不跨域的服务器处理数据，再请求时就不会出现跨域问题。</li>
+<li>顾名思义，新建一个apache或者nginx，弄一个不跨域的服务器处理数据，再请求时就不会出现跨域问题。</li>
 </ul>
 <p>==============================</p>
 <h3 id="HTML5__26amp_3B_iframe"><a href="#HTML5__26amp_3B_iframe" class="headerlink" title="HTML5 &amp; iframe"></a>HTML5 &amp; iframe</h3><ul>
-<li>HTML5新出的postMessage方法可以使得页面给其他的window发送消息，</li>
+<li>HTML5新出的postMessage方法可以使得页面给其他的window发送消息，不过这种方式的局限性很大。基本上只是指一个页面有几个iframe的情况。</li>
+<li>postMessage有两个参数，第一个是要发送的数据，第二个是域，可以使用“ * ”，不限定域。</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">postM</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">var</span> win = ...;</span><br><span class="line">		win.postMessage(<span class="string">"需要发送的数据"</span>,<span class="string">"*"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>H5特性在浏览器兼容方面不同，IE8以下版本不支持该方法。</p>
+</li>
+<li><p>iframe方式，是通过window.name方法，每一个window都带一个name属性，我们可以给name属性赋值，然后当打开新的iframe的时候，读取name，就是我们所需要的值。</p>
+</li>
+<li>我们把数据储存在name中，打开任意的iframe，例如打开“www.baidu.com”，那么这个ifram的name属性就有数据。</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">	<span class="built_in">window</span>.name = <span class="string">"储存的数据，可以用数组或者json方式"</span></span><br><span class="line">	</span><br><span class="line">	<span class="built_in">window</span>.location = <span class="string">"另一个页面.html"</span></span><br><span class="line"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="built_in">window</span>.name);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>window.name的方法浏览器兼容不错，比较适合小数据的跨域。</li>
+</ul>
+<h2 id="u7ED3_u8BED"><a href="#u7ED3_u8BED" class="headerlink" title="结语"></a>结语</h2><ul>
+<li>这几种是我用过的跨域方式，其中JSONP应用广泛，iframe简单方便，代理服务器一劳永逸，需要根据不同的项目具体的看。</li>
 </ul>
 
   </section>
