@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      http跨域解决方案 | Octopus&#39;s Blog 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="章鱼哥">
+    
+    
+
+    <meta name="description" content="JSONP
+正常我们请求不同域上的数据的是不允许的，不过很难保证我们的数据都在同一域名下，所以解决跨域问题就是很必须的。JSONP形式是最受欢迎的一种方式。
+我们不能直接访问不同域名的数据，但是我们能直接执行不同域的JS文件，类似远程加载JQ文件
+12http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.jshttp://ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http跨域解决方案 | Octopus's Blog">
+<meta property="og:url" content="http://yoursite.com/2016/01/07/http状态/index.html">
+<meta property="og:site_name" content="Octopus's Blog">
+<meta property="og:description" content="JSONP
+正常我们请求不同域上的数据的是不允许的，不过很难保证我们的数据都在同一域名下，所以解决跨域问题就是很必须的。JSONP形式是最受欢迎的一种方式。
+我们不能直接访问不同域名的数据，但是我们能直接执行不同域的JS文件，类似远程加载JQ文件
+12http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.jshttp://ajax">
+<meta property="og:image" content="http://yoursite.com/img/a.jpg">
+<meta property="og:updated_time" content="2016-01-07T06:59:13.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="http跨域解决方案 | Octopus's Blog">
+<meta name="twitter:description" content="JSONP
+正常我们请求不同域上的数据的是不允许的，不过很难保证我们的数据都在同一域名下，所以解决跨域问题就是很必须的。JSONP形式是最受欢迎的一种方式。
+我们不能直接访问不同域名的数据，但是我们能直接执行不同域的JS文件，类似远程加载JQ文件
+12http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.jshttp://ajax">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css" type="text/css">
+    <link rel="stylesheet" href="/css/highlight.css" type="text/css">
+    <link rel="stylesheet" href="/css/archive.css" type="text/css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Octopus&#39;s Blog</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          老郭 单身就是手快哈
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">简介</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+<nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+    
+      <!-- Github -->
+      <li class="navigation__item">
+        <a href="https://github.com/80883080" title="Huno on GitHub">
+          <i class='icon icon-social-github'></i>
+          <span class="label">GitHub</span>
+        </a>
+      </li>
+
+    
+
+  </ul>
+</nav>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">http跨域解决方案</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-01-07" class="post-meta__date date">2016-01-07</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/http-404-200/">http 404 200</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><ul>
+<li>正常我们请求不同域上的数据的是不允许的，不过很难保证我们的数据都在同一域名下，所以解决跨域问题就是很必须的。JSONP形式是最受欢迎的一种方式。</li>
+<li><p>我们不能直接访问不同域名的数据，但是我们能直接执行不同域的JS文件，类似远程加载JQ文件</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span>/<span class="regexp">/ajax.googleapis.com/ajax</span><span class="regexp">/libs/jquery</span><span class="regexp">/1.4.2/jquery</span>.min.js</span><br><span class="line"><span class="symbol">http:</span>/<span class="regexp">/ajax.googleapis.com/ajax</span><span class="regexp">/libs/jquery</span><span class="regexp">/1.4.2/jquery</span>.js</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>以上这种方式就是远程的加载JQ的script文件，是可以正常执行的，所以我们利用这一特性，在我们需要获取数据的域名下，布置一个script文件a.js，然后我们让a.js分析处理数据并返回。这样就等于是在目的域名下处理数据，然后通过js返回，就解决了跨域的问题。但是需要后台的配合。</p>
+<p><img src="/img/a.jpg" alt="Alt text" title="JSONP"></p>
+</li>
+</ul>
+<h3 id="u4EE3_u7801_u8BE6_u89E3"><a href="#u4EE3_u7801_u8BE6_u89E3" class="headerlink" title="代码详解"></a>代码详解</h3><ul>
+<li><p>按照上面说的，我们如果想要跨域获取数据，就需要两个JS文件（当然，你写在html里面也可以），一个在本地，另外一个在数据地址。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//本地js代码，引入跨域js文件，通过回调函数callback方法传入json。</span><br><span class="line">//引入的这个js文件为跨域文件，跨域文件读取数据返回json执行callback方法。</span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://a.com/data.php?callback=handler"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">handler</span><span class="params">(json)</span></span>&#123;</span><br><span class="line">		<span class="comment">//成功获取json 想怎么祸祸 就怎么祸祸</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//数据库文件。通过处理数据，调用callback（json）。</span><br><span class="line">&lt;?php  </span><br><span class="line">	//服务端返回JSON数据  </span><br><span class="line">	<span class="variable">$arr</span>=<span class="keyword">array</span>(<span class="string">'a'</span>=&gt;<span class="number">1</span>,<span class="string">'b'</span>=&gt;<span class="number">2</span>,<span class="string">'c'</span>=&gt;<span class="number">3</span>,<span class="string">'d'</span>=&gt;<span class="number">4</span>,<span class="string">'e'</span>=&gt;<span class="number">5</span>);  </span><br><span class="line">	<span class="variable">$result</span>=json_encode(<span class="variable">$arr</span>);  </span><br><span class="line">	//echo $_GET[<span class="string">'callback'</span>].<span class="string">'("Hello,World!")'</span>;  </span><br><span class="line">	//echo $_GET[<span class="string">'callback'</span>].<span class="string">"($result)"</span>;  </span><br><span class="line">	//动态执行回调函数  </span><br><span class="line">	<span class="variable">$callback</span>=$_GET[<span class="string">'callback'</span>];  </span><br><span class="line">	echo <span class="variable">$callback</span>.<span class="string">"($result)"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原理就是这样的，当然调用过程中我们可以使用很多其他方法，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(<span class="string">"http://a.com/data.php?callback=?"</span>,</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params">json</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(json);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;  </span><br><span class="line">        url:<span class="string">"http://a.com/data.php"</span>,  </span><br><span class="line">        dataType:'jsonp',  </span><br><span class="line">        data:'',  </span><br><span class="line">        jsonp:'callback',  </span><br><span class="line">        success:function(<span class="literal">result</span>) &#123;  </span><br><span class="line">            console.log(<span class="literal">result</span>);</span><br><span class="line">        &#125;,  </span><br><span class="line">        timeout:<span class="number">3000</span>  </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>==============================</p>
+<h3 id="u4EE3_u7406_u670D_u52A1_u5668"><a href="#u4EE3_u7406_u670D_u52A1_u5668" class="headerlink" title="代理服务器"></a>代理服务器</h3><ul>
+<li>顾名思义，新建一个apache或者nginx，弄过一个不跨域的服务器处理数据，再请求时就不会出现跨域问题。</li>
+</ul>
+<p>==============================</p>
+<h3 id="HTML5__26amp_3B_iframe"><a href="#HTML5__26amp_3B_iframe" class="headerlink" title="HTML5 &amp; iframe"></a>HTML5 &amp; iframe</h3><ul>
+<li>HTML5新出的postMessage方法可以使得页面给其他的window发送消息，</li>
+</ul>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f1c5c351e20a38b04c173f861677d7b3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
